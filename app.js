@@ -28,9 +28,9 @@ fetch("http://api.open-notify.org/iss-now.json")
 
     marker.setStyle(new ol.style.Style({
       image: new ol.style.Icon( ({
-        color: '#ffcd46',
+        color: 'rgba(255,255,255,0)',
         crossOrigin: '',
-        src: 'https://raw.githubusercontent.com/itsmohitt/openlayers-tutorials/master/dot.png'
+        src: 'https://raw.githubusercontent.com/nasimuddin01/iss-tracker/master/iss.png'
       }))
     }));
 
