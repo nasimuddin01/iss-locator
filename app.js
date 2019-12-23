@@ -30,7 +30,7 @@ fetch("http://api.open-notify.org/iss-now.json")
       image: new ol.style.Icon( ({
         color: 'rgba(255,255,255,0)',
         crossOrigin: '',
-        src: 'https://raw.githubusercontent.com/nasimuddin01/iss-tracker/master/iss.png'
+        src: 'https://raw.githubusercontent.com/nasimuddin01/iss-tracker/master/iss-new.png'
       }))
     }));
 
