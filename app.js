@@ -1,3 +1,8 @@
+// declaring dom varible
+let latitude = document.querySelector("#lat");
+let longitude = document.querySelector("#lon");
+
+// calling api request
 fetch("http://api.open-notify.org/iss-now.json")
   .then(res => res.json())
   .then(data => data.iss_position)
@@ -5,13 +10,16 @@ fetch("http://api.open-notify.org/iss-now.json")
 
     let x = parseFloat(data.latitude);
     let y = parseFloat(data.longitude);
-    console.log(x, y);
 
+    // changing dom latitude & longitude value
+    latitude.innerHTML = `Latitude: ${x}`;
+    longitude.innerHTML = `Longitude: ${y}`;
 
-    var baseMapLayer = new ol.layer.Tile({
+    // making map
+    let baseMapLayer = new ol.layer.Tile({
       source: new ol.source.OSM()
     });
-    var map = new ol.Map({
+    let map = new ol.Map({
       target: 'map',
       layers: [baseMapLayer],
       view: new ol.View({
@@ -19,8 +27,8 @@ fetch("http://api.open-notify.org/iss-now.json")
         zoom: 4 //Initial Zoom Level
       })
     });
-
-    var marker = new ol.Feature({
+    // making map marker
+    let marker = new ol.Feature({
       geometry: new ol.geom.Point(
         ol.proj.fromLonLat([y, x])
       ), // Cordinates of ISS
@@ -34,10 +42,10 @@ fetch("http://api.open-notify.org/iss-now.json")
       }))
     }));
 
-    var vectorSource = new ol.source.Vector({
+    let vectorSource = new ol.source.Vector({
       features: [marker]
     });
-    var markerVectorLayer = new ol.layer.Vector({
+    let markerVectorLayer = new ol.layer.Vector({
       source: vectorSource,
     });
     map.addLayer(markerVectorLayer);
