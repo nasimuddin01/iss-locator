@@ -3,7 +3,7 @@ let latitude = document.querySelector("#lat");
 let longitude = document.querySelector("#lon");
 
 // calling api request
-fetch("http://api.open-notify.org/iss-now.json")
+fetch("https://api.open-notify.org/iss-now.json")
   .then(res => res.json())
   .then(data => data.iss_position)
   .then(data => {
