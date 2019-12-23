@@ -1,19 +1,23 @@
 // declaring dom varible
 let latitude = document.querySelector("#lat");
 let longitude = document.querySelector("#lon");
+let altitude = document.querySelector("#alt");
 
 // calling api request
-fetch("https://api.open-notify.org/iss-now.json")
+fetch("https://www.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/1/&apiKey=B5TK9V-KXSGG6-JUXT3N-497X#")
   .then(res => res.json())
-  .then(data => data.iss_position)
+  .then(data => data.positions[0])
   .then(data => {
 
-    let x = parseFloat(data.latitude);
-    let y = parseFloat(data.longitude);
+    let x = data.satlatitude;
+    let y = data.satlongitude;
+    let z = data.sataltitude;
+    console.log(data);
 
     // changing dom latitude & longitude value
     latitude.innerHTML = `Latitude: ${x}`;
     longitude.innerHTML = `Longitude: ${y}`;
+    altitude.innerHTML = `Altitude: ${z} KM`;
 
     // making map
     let baseMapLayer = new ol.layer.Tile({
