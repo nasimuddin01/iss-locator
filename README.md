@@ -1,4 +1,4 @@
-# iss-tracker
+# ISS Locator
 ISS(International Space Station) Location tracker.
 
 Technology: HTML, SCSS & JavaScript
